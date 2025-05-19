@@ -6,7 +6,8 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ProjectEnvironment": "develop",
-        "DatabaseConnectionString": "Server=localhost;Uid=root;Pwd=11014221dM.;Database=Registration;allowPublicKeyRetrieval=true"
+        "DatabaseConnectionString": "Server=localhost;Uid=root;Pwd=11014221dM.;Database=Registration;allowPublicKeyRetrieval=true",
+        "JwtSecret": "SSAP_Md12241011_DI_1908523001_DAYBIRTH_19980915_PRODUCTION"
       },
       "applicationUrl": "https://localhost:63599;http://localhost:63600"
     },

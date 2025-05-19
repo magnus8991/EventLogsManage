@@ -5,6 +5,6 @@ using EventLogsManage.Persistence.Context;
 
 namespace EventLogsManage.Persistence.Repositories;
 
-public class EventLogRepository(EventLogsManageDBContext context) : GenericRepository<EventLogEntity>(context), IEventLogRepository
+public class UserRepository(EventLogsManageDBContext context) : GenericRepository<UserEntity>(context), IUserRepository
 {
 }

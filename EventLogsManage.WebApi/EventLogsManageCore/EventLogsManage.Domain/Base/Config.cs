@@ -6,6 +6,7 @@ public sealed class Config
     private static readonly object lockObject = new();
     public string ProjectEnvironment { get { return GetEnvironmentVariable(nameof(ProjectEnvironment)); } private set { } }
     public string DatabaseConnectionString { get { return GetEnvironmentVariable(nameof(DatabaseConnectionString)); } private set { } }
+    public string JwtSecret { get { return GetEnvironmentVariable(nameof(JwtSecret)); } private set { } }
     private Config()
     {
     }

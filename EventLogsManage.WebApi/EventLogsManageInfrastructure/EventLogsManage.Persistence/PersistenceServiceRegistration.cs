@@ -14,7 +14,8 @@ public static class PersistenceServiceRegistration
         string databaseConnectionString = Config.Instance.DatabaseConnectionString;
         services.AddDbContext<EventLogsManageDBContext>(options =>
             options.UseMySQL(databaseConnectionString, x => x.MigrationsHistoryTable("EFMigrationsHistory")))
-                .AddTransient<IEventLogRepository, EventLogRepository>();
+                .AddTransient<IEventLogRepository, EventLogRepository>()
+                .AddTransient<IUserRepository, UserRepository>();
         return services;
     }
 }
