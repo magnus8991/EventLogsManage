@@ -7,7 +7,7 @@ using System.Text;
 
 namespace EventLogsManage.Domain.Services.Jwt;
 
-public class JwtService
+public class JwtService: IJwtService
 {
     public string GenerateToken(UserEntity user)
     {
