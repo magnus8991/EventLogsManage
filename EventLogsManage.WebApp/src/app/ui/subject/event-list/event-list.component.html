@@ -1,17 +1,86 @@
 @defer(on viewport){
+      <div card-content>
+        <form class="row" [formGroup]="filterForm">
+          <div style="width: 100% !important">
+            <div class="col-md-10 mx-auto col-sm-10">
+              <div class="row mt-4 text-center">
+                <mat-form-field  class="col-lg-6 col-6 mb-3">
+                  <mat-label>Fecha inicial</mat-label>
+                  <input matInput formControlName="InitialDate" [matDatepicker]="pickerInitial" />
+                  <mat-datepicker-toggle matIconSuffix [for]="pickerInitial"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerInitial></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field  class="col-lg-6 col-6 mb-3">
+                  <mat-label>Fecha final</mat-label>
+                  <input matInput formControlName="FinalDate" [matDatepicker]="pickerFinal" />
+                  <mat-datepicker-toggle matIconSuffix [for]="pickerFinal"></mat-datepicker-toggle>
+                  <mat-datepicker #pickerFinal></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div class="row mt-4 text-center">
+                <mat-form-field class="col-lg-6 col-6 mb-3">
+                  <mat-label>Tipo de evento</mat-label>
+                  <mat-select formControlName="EventType">
+                    <mat-option [value]="1">API</mat-option>
+                    <mat-option [value]="2">Formulario de eventos manuales</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div class="col-lg-3 col-3 mb-3">
+                  <ftx-button
+                    [content]="'Refrescar'"
+                    (eventClick)="resetFilters()"
+                    [icon]="'refresh'"
+                    [buttonType]="'secondary'"
+                  />
+                </div>
+                <div class="col-lg-3 col-3 mb-3">
+                  <ftx-button
+                    [content]="'Consultar'"
+                    (eventClick)="getEventsByFilter()"
+                    [icon]="'search'"
+                    [buttonType]="'secondary'"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <ftx-divider />
+      </div>
+  <div class="container row">
+  <table mat-table [dataSource]="events" class="mat-elevation-z8">
 
-<div class="container row">
-  @for (event of events; track event.eventLogId) {
-  <div class="col-sm-6 col-xl-4 col-12">
-    <ftx-item [Title]="'Tipo de evento: ' + event.eventType">
-      <ng-container content>
-        <p class="p-item"><strong>Descripción: </strong> {{ event.description }}</p>
-      </ng-container>
-    </ftx-item>
-  </div>
-  }
+  <ng-container matColumnDef="eventLogId">
+    <th mat-header-cell *matHeaderCellDef> Id del evento </th>
+    <td mat-cell *matCellDef="let element"> {{element.eventLogId}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Descripción </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="eventType">
+    <th mat-header-cell *matHeaderCellDef> Tipo de evento </th>
+    <td mat-cell *matCellDef="let element"> {{element.eventType}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="eventDate">
+    <th mat-header-cell *matHeaderCellDef> Fecha del evento </th>
+    <td mat-cell *matCellDef="let element"> {{element.eventDate | date: 'dd/MM/yyyy'}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<mat-paginator [length]="totalElements" 
+  [pageSize]="pageSize" 
+  [pageSizeOptions]="[5, 10, 25]"
+  (page)="handlePageEvent($event)"
+  [pageIndex]="page"
+  aria-label="Select page of events"></mat-paginator>
 </div>
-<div class="example-container"></div>
+<div class="example-container" style="margin-bottom: 100px;"></div>
 } @placeholder {
 <p>No hay datos</p>
 }@loading(minimum 0.5s) {

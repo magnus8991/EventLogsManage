@@ -11,6 +11,7 @@ import {HttpService} from "@infrastructure/http/http.service";
 import {EventService} from "@core/services/event-service.interface";
 import {EventRepository} from "@infrastructure/repositories/event-repository";
 import {AddEventsComponent} from "./add-events/add-events.component";
+import { MatTableModule } from "@angular/material/table";
 
 @NgModule({
   declarations: [EventComponent,  EventListComponent, AddEventsComponent],
@@ -20,6 +21,7 @@ import {AddEventsComponent} from "./add-events/add-events.component";
     EventRoutingModule,
     FormsModule,
     SharedModule,
+    MatTableModule
   ],
   providers: [
     HttpService,

@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import {EventService} from "@core/services/event-service.interface";
 import {GetAllEvents} from "@core/models/event/get-all-event";
 import { ResponseWithPagination } from "@core/models/response/response-with-pagination";
+import { ResponseBase } from "@core/models/response/response-base";
 
 @Injectable({
   providedIn: "root",
@@ -16,8 +17,8 @@ export class EventRepository extends EventService {
   }
 
   getByFilter(page: number, pageSize: number, initialDate?: Date, finalDate?: Date, 
-    eventType?: number): Observable<ResponseWithPagination<GetAllEvents[]>> {
-    return this.httpService.doPost<any, ResponseWithPagination<GetAllEvents[]>>(
+    eventType?: number): Observable<ResponseBase<ResponseWithPagination<GetAllEvents[]>>> {
+    return this.httpService.doPost<any, ResponseBase<ResponseWithPagination<GetAllEvents[]>>>(
       `${this.baseUrl}`, { page: page, pageSize: pageSize, initialDate: initialDate, 
         finalDate: finalDate, eventType: eventType
       });
