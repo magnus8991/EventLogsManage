@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import 'mdb-angular-ui-kit/assets/scss/mdb.scss';
+
+html, body { height: 100%; }
+/* Asegúrate de que el body no tenga scroll horizontal */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100vw;
+  box-sizing: border-box;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* Estilos para el contenedor principal */
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 0; /* Ajusta según sea necesario */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Estilos para el contenido */
+.content {
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* Asegúrate de que header y footer ocupen el ancho completo */
+app-header, app-footer {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Asegúrate de que el contenido del router no cause overflow */
+router-outlet {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}

@@ -1,0 +1,52 @@
+<ftx-layout-page [title]="'Matricula de materias'">
+  <div class="container-fluid">
+    <div class="col-12 mx-auto mt-4">
+      <ng-container>
+        @defer(on viewport){
+          <div class="container row">
+            @for (subject of subjects; track subject.id) {
+              <div class="col-sm-6 col-xl-4 col-12">
+                <ftx-item [Title]="'Materia: ' + subject.name">
+                  <ng-container content>
+                    <p class="p-item"><strong>Profesor: </strong> {{ subject.professor.name }}</p>
+                  </ng-container>
+                  <ng-container footer>
+                    <div class="d-flex align-items-center">
+                      <div class="custom-checkbox">
+                        <input id="checkbox-{{subject.id}}" type="checkbox"
+                               (change)="onSubjectSelectionChange(subject, $event)"
+                               [disabled]="selectedSubjects.length >= maxSubjects && !isSubjectSelected(subject)">
+                        <label for="checkbox-{{subject.id}}">Seleccionar</label>
+                      </div>
+                    </div>
+                  </ng-container>
+                </ftx-item>
+              </div>
+            }
+          </div>
+        } @placeholder {
+          <p>No hay datos</p>
+        } @loading(minimum 0.5s) {
+          <app-ftx-spinner />
+        }
+        <ftx-divider></ftx-divider>
+
+        <div class="divider d-flex justify-content-between">
+          <ftx-button
+            [positionIcon]="'left'"
+            [icon]="'arrow_back'"
+            [content]="'Volver'"
+            (click)="volver()"
+          />
+          <ftx-button
+            [positionIcon]="'left'"
+            [icon]="'add_circle'"
+            [content]="'Matricular materias'"
+            (click)="matricular()"
+            [disabled]="!selectedSubjects.length"
+          />
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ftx-layout-page>

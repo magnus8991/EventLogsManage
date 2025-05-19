@@ -1,0 +1,31 @@
+@defer(on viewport){
+
+<div class="row">
+  @for (student of students; track student.name) {
+  <div class="col-sm-6 col-xl-4 col-12">
+    <ftx-item [Title]="student.name">
+      <ng-container content>
+        <p class="p-item">
+          <strong>Identificación: </strong
+          > {{student.documentType}} {{ student.document}}
+        </p>
+        <p class="p-item"><strong>Email: </strong> {{ student.email }}</p>
+      </ng-container>
+    </ftx-item>
+  </div>
+  }
+</div>
+
+<ftx-paginator
+  [length]="totalItems"
+  [pageSize]="itemsPerPage"
+  [pageIndex]="currentPage"
+  [pageSizeOptions]="[5, 10, 15]"
+  (page)="onPageChange($event)"
+></ftx-paginator>
+<div class="example-container"></div>
+} @placeholder {
+<p>No hay datos</p>
+}@loading(minimum 0.5s) {
+<app-ftx-spinner />
+}

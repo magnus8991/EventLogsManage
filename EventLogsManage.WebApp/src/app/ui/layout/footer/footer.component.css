@@ -1,0 +1,9 @@
+.footer{
+  border-top: medium solid rgba(184, 184, 184, 0.309);
+  position: fixed;
+  bottom: 0;
+
+  background: #ffffff;
+  width: 100%;
+  left: 0;
+}

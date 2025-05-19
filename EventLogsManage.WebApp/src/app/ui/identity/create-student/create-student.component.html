@@ -1,0 +1,59 @@
+<ftx-layout-page [title]="'Crear estudiante'">
+  <div class="container-fluid">
+    <div class="col-10 mx-auto mt-4">
+      <ftx-card>
+        <div card-header class="row align-items-center">
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <h3><ftx-icon [icon]="'create'" />Crear estudiante</h3>
+          </div>
+        </div>
+        <div card-content>
+          <form class="row">
+            <div style="width: 100% !important" *ngIf="!isLoading">
+              <div class="col-md-10 mx-auto col-sm-10">
+                <div class="row mt-2 text-center">
+                  <div class="col-lg-6 col-12 mb-3">
+                    <ftx-input
+                      [formGroup]="studentForm"
+                      [controlName]="'Identification'"
+                      [label]="'Identificación'"
+                      [placeholder]="'Identificación'"
+                    />
+                  </div>
+                  <div class="col-lg-6 col-12 mb-3">
+                    <ftx-input
+                      [formGroup]="studentForm"
+                      [controlName]="'Name'"
+                      [label]="'Nombre'"
+                      [placeholder]="'Nombre del usuario'"
+                    />
+                  </div>
+                </div>
+                <div class="row mt-3 mb-3">
+                  <div class="col-6" style="text-align: end;">
+                    <ftx-button
+                      [buttonType]="'secondary'"
+                      [content]="'Volver'"
+                      (eventClick)="back()"
+                      [icon]="'arrow_back'"
+                    />
+                  </div>
+                  <div class="col-6 justify-content-center">
+                    <ftx-button
+                      [content]="'Registrarse'"
+                      (eventClick)="save()"
+                      [disabled]="!studentForm.valid"
+                      [icon]="'save'"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <app-ftx-spinner *ngIf="isLoading" />
+          </form>
+          <ftx-divider />
+        </div>
+      </ftx-card>
+    </div>
+  </div>
+</ftx-layout-page>
