@@ -52,7 +52,7 @@ public class LoginValidator : AbstractValidator<LoginRequest>
     private async Task<bool> ExistsUserAsync(string identification, string password, CancellationToken cancellationToken)
     {
         UserByIdentificationAndPasswordSpec specification = new(identification, password);
-        UserEntity? User = await _userRepository.SingleOrDefaultAsync(specification, cancellationToken);
+        User = await _userRepository.SingleOrDefaultAsync(specification, cancellationToken);
         return User is not null;
     }
 }
