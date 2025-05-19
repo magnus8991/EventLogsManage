@@ -10,7 +10,6 @@ public class EventLogsManageDBContext(DbContextOptions<EventLogsManageDBContext>
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("dbo");
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(EventLogEntityConfiguration).Assembly);
     }
 }
