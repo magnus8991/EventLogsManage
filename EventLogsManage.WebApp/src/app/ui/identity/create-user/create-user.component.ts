@@ -11,9 +11,20 @@ import {UserService} from "@core/services/user-service.interface";
   styleUrl: "./create-user.component.css",
 })
 export class CreateUserComponent implements OnInit {
+  public userForm!: FormGroup;
+  public isLoading = false;
+  
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private location: Location,
+    private notificationService: NotificationService
+  ) {}
+
   ngOnInit(): void {
     this.createForm();
   }
+
   private createForm(): void {
     this.userForm = this.formBuilder.group({
       Name: ["", Validators.required],
@@ -21,14 +32,6 @@ export class CreateUserComponent implements OnInit {
       Password: ["", Validators.required],
     });
   }
-  public userForm!: FormGroup;
-  public isLoading = false;
-  constructor(
-    private formBuilder: FormBuilder,
-    private userService: UserService,
-    private location: Location,
-    private notificationService: NotificationService
-  ) {}
 
   save(): void {
     if (this.userForm.valid) {
@@ -44,6 +47,7 @@ export class CreateUserComponent implements OnInit {
           this.notificationService.showSuccess(result.message);
           this.userForm.get("Name")?.patchValue(""),
             this.userForm.get("Identification")?.patchValue(""),
+            this.userForm.get("Password")?.patchValue(""),
             this.userForm.markAsUntouched();
         },
         error: (error) => {
