@@ -6,8 +6,8 @@ import { HttpService } from "@infrastructure/http/http.service";
 import {IdentityRoutingModule} from "./identity-routing.module";
 import {CreateUserComponent} from "./create-user/create-user.component";
 import {LoginComponent} from "./login/login.component";
-import {StudentRepository} from "@infrastructure/repositories/student-repository";
-import {StudentService} from "@core/services/student-service.interface";
+import {UserRepository} from "@infrastructure/repositories/user-repository";
+import {UserService} from "@core/services/user-service.interface";
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import {StudentService} from "@core/services/student-service.interface";
   ],
   providers: [
     HttpService,
-    { provide: StudentService, useClass: StudentRepository }
+    { provide: UserService, useClass: UserRepository }
   ],
   exports: [],
 })

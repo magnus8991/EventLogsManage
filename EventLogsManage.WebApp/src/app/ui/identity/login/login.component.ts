@@ -20,7 +20,7 @@ import {AuthService} from "@core/services/auth-service.interface";
 })
 export class LoginComponent implements OnInit {
 
-  studentName!: string;
+  userName!: string;
   userLogged: boolean = false;
   userRegister: boolean = false;
   MODULES = MODULES;
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     let stringIdentity: string | null = localStorage.getItem("auth");
     if (stringIdentity) {
       let auth: AuthResponse = JSON.parse(stringIdentity);
-      this.studentName = auth.name;
+      this.userName = auth.name;
       this.userLogged = true;
       this.router.navigate([MODULES.IDENTITIES.ADD]);
     }
@@ -58,11 +58,11 @@ export class LoginComponent implements OnInit {
     let password: string = this.loginForm.get('Password')?.value;
     let auth = new Auth(identification, password);
     this.loginService.login(auth).subscribe(response => {
-      this.studentName = response.name;
+      this.userName = response.data?.name!;
       this.loginForm.get('Identification')?.reset();
-      localStorage.setItem("auth", JSON.stringify(response));
+      localStorage.setItem("auth", JSON.stringify(response.data));
       this.authService.login()
-      this.router.navigate([MODULES.SUBJECTS.GET_SUBJECTS_BY_IDENTIFICATION]);
+      this.router.navigate([MODULES.EVENTS.GET_EVENTS_BY_FILTER]);
     }, (error) => {this.notification.showError('Falló al iniciar sesión');
     });
   }

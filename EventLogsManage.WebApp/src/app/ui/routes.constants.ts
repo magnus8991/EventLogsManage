@@ -3,9 +3,9 @@ export const IDENTITIES = {
   LOGIN: "login",
   ADD: "create",
 };
-export const SUBJECTS = {
+export const EVENTS = {
   NAME: "subjects",
-  GET_SUBJECTS_BY_IDENTIFICATION: "subjects-by-identification",
+  GET_EVENTS_BY_FILTER: "events-by-filter",
   ADD: "add",
 };
 export const MODULES = {
@@ -13,8 +13,8 @@ export const MODULES = {
     USER: `/${IDENTITIES.NAME}/${IDENTITIES.LOGIN}`,
     ADD: `/${IDENTITIES.NAME}/${IDENTITIES.ADD}`,
   },
-  SUBJECTS: {
-    GET_SUBJECTS_BY_IDENTIFICATION: `/${SUBJECTS.NAME}/${SUBJECTS.GET_SUBJECTS_BY_IDENTIFICATION}`,
-    ADD: `/${SUBJECTS.NAME}/${SUBJECTS.ADD}`,
+  EVENTS: {
+    GET_EVENTS_BY_FILTER: `/${EVENTS.NAME}/${EVENTS.GET_EVENTS_BY_FILTER}`,
+    ADD: `/${EVENTS.NAME}/${EVENTS.ADD}`,
   },
 };

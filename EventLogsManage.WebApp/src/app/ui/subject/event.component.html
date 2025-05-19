@@ -1,4 +1,4 @@
-<ftx-layout-page [title]="'Mis materias'">
+<ftx-layout-page [title]="'Mis eventos'">
   <div class="container-fluid">
     <div class="col-12 mx-auto mt-4">
       <ng-container>
@@ -8,13 +8,13 @@
             <ftx-button
               [positionIcon]="'left'"
               [icon]="'add_circle'"
-              [content]="'Agregar materia'"
-              [routerLink]="[MODULES.SUBJECTS.ADD]"
+              [content]="'Agregar evento'"
+              [routerLink]="[MODULES.EVENTS.ADD]"
             />
           </div>
         </div>
         <div class="row mt-2">
-          <app-subject-list></app-subject-list>
+          <app-event-list></app-event-list>
         </div>
         <ftx-divider />
       </ng-container>

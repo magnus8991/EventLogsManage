@@ -10,8 +10,9 @@ import {AuthService} from "@core/services/auth-service.interface";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit{
+  getEventsByFilterRoute: string = MODULES.EVENTS.GET_EVENTS_BY_FILTER;
   userLogged: boolean = JSON.parse(localStorage.getItem("userLogged") || "false");
-  studentName: string = "";
+  userName: string = "";
 
   ngOnInit(): void {
     this.authService.userLogged$.subscribe(logged => {
@@ -20,7 +21,7 @@ export class HeaderComponent implements OnInit{
       if (logged) {
         if (stringAuth) {
           let auth: AuthResponse = JSON.parse(stringAuth);
-          this.studentName = auth.name;
+          this.userName = auth.name;
         }
       }
     });
@@ -31,8 +32,8 @@ export class HeaderComponent implements OnInit{
     let stringAuth: string | null = localStorage.getItem("auth");
     if (stringAuth) {
       let auth: AuthResponse = JSON.parse(stringAuth);
-      this.studentName = auth.name;
-      this.router.navigate([MODULES.SUBJECTS.GET_SUBJECTS_BY_IDENTIFICATION]);
+      this.userName = auth.name;
+      this.router.navigate([this.getEventsByFilterRoute]);
     }
   }
 

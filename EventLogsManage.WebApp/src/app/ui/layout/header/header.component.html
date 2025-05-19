@@ -3,8 +3,8 @@
     <div class="headerTool">
       <div class="col-12 shadow p-2 mb-1 bg-white rounded">
         <div class="row">
-          <div [ngClass]="{'col-8': true, 'col-12 text-center': !userLogged}">
-            <a [routerLink]="['/']">
+          <div [ngClass]="{'col-8 d-flex align-items-center': userLogged, 'col-12 text-center': !userLogged}">
+            <a [routerLink]="!userLogged ? ['/'] : [getEventsByFilterRoute]">
               <div class="col-12">
                 <img
                   src="../../assets/LogoFinotex.png"
@@ -14,8 +14,8 @@
               </div>
             </a>
           </div>
-          <div *ngIf="userLogged" class="col-2 d-flex align-items-center">
-            <span>{{studentName}}</span>
+          <div *ngIf="userLogged" class="col-4 d-flex align-items-center">
+            <span>{{userName}}</span>
             <div class="rounded-circle shadow border mx-auto">
               <div class="rounded-circle-div">
                 <img

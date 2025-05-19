@@ -1,0 +1,24 @@
+<ftx-layout-page [title]="'Matricula de materias'">
+  <div class="container-fluid">
+    <div class="col-12 mx-auto mt-4">
+      <ng-container>
+        @defer(on viewport){
+        } @placeholder {
+          <p>No hay datos</p>
+        } @loading(minimum 0.5s) {
+          <app-ftx-spinner />
+        }
+        <ftx-divider></ftx-divider>
+
+        <div class="divider d-flex justify-content-between">
+          <ftx-button
+            [positionIcon]="'left'"
+            [icon]="'arrow_back'"
+            [content]="'Volver'"
+            (click)="volver()"
+          />
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ftx-layout-page>

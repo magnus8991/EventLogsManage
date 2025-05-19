@@ -14,7 +14,7 @@
                 <div class="row mt-2 text-center">
                   <div class="col-lg-6 col-12 mb-3">
                     <ftx-input
-                      [formGroup]="studentForm"
+                      [formGroup]="userForm"
                       [controlName]="'Identification'"
                       [label]="'Identificación'"
                       [placeholder]="'Identificación'"
@@ -22,7 +22,7 @@
                   </div>
                   <div class="col-lg-6 col-12 mb-3">
                     <ftx-input
-                      [formGroup]="studentForm"
+                      [formGroup]="userForm"
                       [controlName]="'Name'"
                       [label]="'Nombre'"
                       [placeholder]="'Nombre del usuario'"
@@ -30,10 +30,11 @@
                   </div>
                   <div class="col-lg-6 col-12 mb-3">
                     <ftx-input
-                      [formGroup]="studentForm"
+                      [formGroup]="userForm"
                       [controlName]="'Password'"
                       [label]="'Contraseña'"
                       [placeholder]="'Contraseña del usuario'"
+                      [type]="'password'"
                     />
                   </div>
                 </div>
@@ -50,7 +51,7 @@
                     <ftx-button
                       [content]="'Registrarse'"
                       (eventClick)="save()"
-                      [disabled]="!studentForm.valid"
+                      [disabled]="!userForm.valid"
                       [icon]="'save'"
                     />
                   </div>

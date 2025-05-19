@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { MODULES } from "../routes.constants";
 
 @Component({
-  selector: "app-subject",
-  templateUrl: "./subject.component.html",
-  styleUrl: "./subject.component.css",
+  selector: "app-event",
+  templateUrl: "./event.component.html",
+  styleUrl: "./event.component.css",
 })
-export class SubjectComponent implements OnInit {
+export class EventComponent implements OnInit {
   formControl!: FormGroup;
   filter!: string;
   constructor(

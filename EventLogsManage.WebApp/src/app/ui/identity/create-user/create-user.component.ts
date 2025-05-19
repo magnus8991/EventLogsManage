@@ -1,9 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NotificationService } from "../../shared/services/notification.service";
-import { CreateStudent } from "@core/models/student/create-student.model";
+import { CreateUser } from "@core/models/user/create-user.model";
 import { Location } from "@angular/common";
-import {StudentService} from "@core/services/student-service.interface";
+import {UserService} from "@core/services/user-service.interface";
 
 @Component({
   selector: "app-create-user",
@@ -15,35 +15,36 @@ export class CreateUserComponent implements OnInit {
     this.createForm();
   }
   private createForm(): void {
-    this.studentForm = this.formBuilder.group({
+    this.userForm = this.formBuilder.group({
       Name: ["", Validators.required],
       Identification: ["", Validators.required],
       Password: ["", Validators.required],
     });
   }
-  public studentForm!: FormGroup;
+  public userForm!: FormGroup;
   public isLoading = false;
   constructor(
     private formBuilder: FormBuilder,
-    private studentService: StudentService,
+    private userService: UserService,
     private location: Location,
     private notificationService: NotificationService
   ) {}
 
   save(): void {
-    if (this.studentForm.valid) {
+    if (this.userForm.valid) {
       this.isLoading = true;
-      const createStudent: CreateStudent = new CreateStudent(
-        this.studentForm.get("Name")?.value,
-        this.studentForm.get("Identification")?.value,
+      const createUser: CreateUser = new CreateUser(
+        this.userForm.get("Name")?.value,
+        this.userForm.get("Identification")?.value,
+        this.userForm.get("Password")?.value,
       );
 
-      this.studentService.createStudent(createStudent).subscribe({
-        next: () => {
-          this.notificationService.showSuccess("Usuario creado con exito");
-          this.studentForm.get("Name")?.patchValue(""),
-            this.studentForm.get("Identification")?.patchValue(""),
-            this.studentForm.markAsUntouched();
+      this.userService.createUser(createUser).subscribe({
+        next: (result) => {
+          this.notificationService.showSuccess(result.message);
+          this.userForm.get("Name")?.patchValue(""),
+            this.userForm.get("Identification")?.patchValue(""),
+            this.userForm.markAsUntouched();
         },
         error: (error) => {
           this.notificationService.showError("Error al crear el usuario");

@@ -21,6 +21,7 @@ public class AddUserCommand(IUserRepository userRepository,
             Identification = request.Identification!,
             Name = request.Name!,
             Password = request.Password!,
+            CreateDate = DateTimeOffset.Now.Date
         };
         try
         {

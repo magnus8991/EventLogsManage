@@ -1,0 +1,19 @@
+@defer(on viewport){
+
+<div class="container row">
+  @for (event of events; track event.eventLogId) {
+  <div class="col-sm-6 col-xl-4 col-12">
+    <ftx-item [Title]="'Tipo de evento: ' + event.eventType">
+      <ng-container content>
+        <p class="p-item"><strong>Descripción: </strong> {{ event.description }}</p>
+      </ng-container>
+    </ftx-item>
+  </div>
+  }
+</div>
+<div class="example-container"></div>
+} @placeholder {
+<p>No hay datos</p>
+}@loading(minimum 0.5s) {
+  <app-ftx-spinner />
+}

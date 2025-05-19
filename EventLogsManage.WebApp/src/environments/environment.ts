@@ -8,6 +8,6 @@ export const environment = {
 
 export const resources = {
   auth: "login",
-  subjects: "subjects",
-  student: "students"
+  events: "eventLog/list",
+  users: "user"
 };
