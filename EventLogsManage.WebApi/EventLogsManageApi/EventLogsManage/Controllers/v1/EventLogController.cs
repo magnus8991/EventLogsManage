@@ -9,11 +9,11 @@ namespace EventLogsManage.Controllers.v1;
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
 
-public class SubscriptionController : ControllerBase
+public class EventLogController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public SubscriptionController(IMediator mediator)
+    public EventLogController(IMediator mediator)
     {
         _mediator = mediator;
     }
