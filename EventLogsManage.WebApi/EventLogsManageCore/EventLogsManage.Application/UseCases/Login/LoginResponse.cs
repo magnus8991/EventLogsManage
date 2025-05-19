@@ -2,5 +2,6 @@
 
 public record LoginResponse
 {
-    public string Token { get; set; }
+    public required string Name { get; set; }
+    public required string Token { get; set; }
 }

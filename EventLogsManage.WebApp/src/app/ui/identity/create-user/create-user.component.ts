@@ -6,11 +6,11 @@ import { Location } from "@angular/common";
 import {StudentService} from "@core/services/student-service.interface";
 
 @Component({
-  selector: "app-create-student",
-  templateUrl: "./create-student.component.html",
-  styleUrl: "./create-student.component.css",
+  selector: "app-create-user",
+  templateUrl: "./create-user.component.html",
+  styleUrl: "./create-user.component.css",
 })
-export class CreateStudentComponent implements OnInit {
+export class CreateUserComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
   }
@@ -18,6 +18,7 @@ export class CreateStudentComponent implements OnInit {
     this.studentForm = this.formBuilder.group({
       Name: ["", Validators.required],
       Identification: ["", Validators.required],
+      Password: ["", Validators.required],
     });
   }
   public studentForm!: FormGroup;

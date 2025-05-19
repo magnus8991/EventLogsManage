@@ -1,10 +1,10 @@
-<ftx-layout-page [title]="'Crear estudiante'">
+<ftx-layout-page [title]="'Registrar usuario'">
   <div class="container-fluid">
     <div class="col-10 mx-auto mt-4">
       <ftx-card>
         <div card-header class="row align-items-center">
           <div class="col-12 d-flex justify-content-center align-items-center">
-            <h3><ftx-icon [icon]="'create'" />Crear estudiante</h3>
+            <h3><ftx-icon [icon]="'create'" />Para ingresar al sistema debe registrarse</h3>
           </div>
         </div>
         <div card-content>
@@ -26,6 +26,14 @@
                       [controlName]="'Name'"
                       [label]="'Nombre'"
                       [placeholder]="'Nombre del usuario'"
+                    />
+                  </div>
+                  <div class="col-lg-6 col-12 mb-3">
+                    <ftx-input
+                      [formGroup]="studentForm"
+                      [controlName]="'Password'"
+                      [label]="'Contraseña'"
+                      [placeholder]="'Contraseña del usuario'"
                     />
                   </div>
                 </div>

@@ -29,7 +29,7 @@ public class LoginCommand(IValidator<LoginRequest> validator, IJwtService jwtSer
         return await Task.FromResult(new ResponseBase<LoginResponse>()
         {
             CodeId = (int)HttpStatusCode.OK,
-            Data = new() { Token = token },
+            Data = new() { Token = token, Name = _validator.User!.Name },
             Message = "¡Inicio de sesión exitoso!"
         });
     }

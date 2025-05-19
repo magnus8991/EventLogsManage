@@ -3,11 +3,11 @@ export const environment = {
   appConfig: "dev",
   pathConfig: "./assets/config",
   apiSuffix: "/api/v1/",
-  apiUrl: "https://localhost:5051"
+  apiUrl: "https://localhost:63599"
 };
 
 export const resources = {
-  auth: "auths",
+  auth: "login",
   subjects: "subjects",
   student: "students"
 };

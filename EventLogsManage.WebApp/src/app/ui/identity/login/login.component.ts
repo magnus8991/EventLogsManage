@@ -1,11 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { CommonModule } from "@angular/common";
 
 import {
   FormBuilder,
   FormGroup,
-  FormsModule,
-  ReactiveFormsModule,
   Validators,
 } from "@angular/forms";
 import { NotificationService } from "../../shared/services/notification.service";
@@ -49,7 +46,8 @@ export class LoginComponent implements OnInit {
 
   private createForm(): void {
     this.loginForm = this.formBuilder.group({
-      Identification: ["", Validators.required]
+      Identification: ["", Validators.required],
+      Password: ["", Validators.required]
     });
   }
 
@@ -57,7 +55,8 @@ export class LoginComponent implements OnInit {
 
   login() {
     let identification: string = this.loginForm.get('Identification')?.value;
-    let auth = new Auth(identification);
+    let password: string = this.loginForm.get('Password')?.value;
+    let auth = new Auth(identification, password);
     this.loginService.login(auth).subscribe(response => {
       this.studentName = response.name;
       this.loginForm.get('Identification')?.reset();

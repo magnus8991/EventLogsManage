@@ -12,13 +12,21 @@
         <form class="row">
           <div style="width: 100% !important">
             <div class="col-md-10 mx-auto col-sm-10">
-              <div class="row mt-2 text-center">
-                <div class="col-lg-12 col-12 mb-3">
+              <div class="row mt-4 text-center">
+                <div class="col-lg-6 col-6 mb-3">
                   <ftx-input
                     [formGroup]="loginForm"
                     [controlName]="'Identification'"
                     [label]="''"
                     [placeholder]="'Identificación'"
+                  />
+                </div>
+                <div class="col-lg-6 col-6 mb-3">
+                  <ftx-input
+                    [formGroup]="loginForm"
+                    [controlName]="'Password'"
+                    [label]="''"
+                    [placeholder]="'Contraseña'"
                   />
                 </div>
               </div>
