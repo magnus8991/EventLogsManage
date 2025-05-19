@@ -13,7 +13,7 @@ public class LoginCommand(IValidator<LoginRequest> validator, IJwtService jwtSer
     private readonly LoginValidator _validator = (LoginValidator)validator;
     private readonly IExceptionGeneratorService _exceptionGeneratorService = exceptionGeneratorService;
 
-    public async Task<ResponseBase<LoginResponse>> HandleAsync(LoginRequest request, CancellationToken cancellationToken)
+    public async Task<ResponseBase<LoginResponse>> Handle(LoginRequest request, CancellationToken cancellationToken)
     {
         string token = null!;
         try
@@ -32,10 +32,5 @@ public class LoginCommand(IValidator<LoginRequest> validator, IJwtService jwtSer
             Data = new() { Token = token },
             Message = "¡Inicio de sesión exitoso!"
         });
-    }
-
-    public Task<ResponseBase<LoginResponse>> Handle(LoginRequest request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
     }
 }
