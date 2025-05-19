@@ -1,8 +1,9 @@
 ﻿using EventLogsManage.Application.UseCases.AddEventLog;
+using EventLogsManage.Application.UseCases.GetEventLogsPaginated;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Subscriptions.Controllers.v1;
+namespace EventLogsManage.Controllers.v1;
 
 [ApiController]
 [ApiVersion("1.0")]

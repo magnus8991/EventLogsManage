@@ -31,7 +31,4 @@
     <ProjectReference Include="..\..\EventLogsManageCore\EventLogsManage.Domain\EventLogsManage.Domain.csproj" />
     <ProjectReference Include="..\..\EventLogsManageInfrastructure\EventLogsManage.Persistence\EventLogsManage.Persistence.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 </Project>
