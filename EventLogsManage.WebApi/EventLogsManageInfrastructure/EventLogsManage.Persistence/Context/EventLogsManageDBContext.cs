@@ -7,6 +7,7 @@ namespace EventLogsManage.Persistence.Context;
 public class EventLogsManageDBContext(DbContextOptions<EventLogsManageDBContext> options) : DbContext(options)
 {
     public DbSet<EventLogEntity> EventLogs { get; set; }
+    public DbSet<UserEntity> Users { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
