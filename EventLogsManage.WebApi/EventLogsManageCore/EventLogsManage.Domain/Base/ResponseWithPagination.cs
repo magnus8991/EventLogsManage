@@ -2,7 +2,7 @@
 {
     public class ResponseWithPagination<T>
     {
-        public T? Data { get; init; }
+        public T? Records { get; init; }
         public Pagination? Pagination { get; init; }
     }
 

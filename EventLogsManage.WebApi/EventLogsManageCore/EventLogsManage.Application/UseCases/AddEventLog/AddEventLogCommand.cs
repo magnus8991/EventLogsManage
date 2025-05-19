@@ -18,9 +18,11 @@ public class AddEventLogCommand(IEventLogRepository eventLogRepository,
     {
         EventLogEntity eventLog = new()
         {
+            EventLogId = Guid.NewGuid(),
             Description = request.Description!,
             EventType = request.EventType!.Value,
-            EventDate = request.EventDate!.Value
+            EventDate = request.EventDate!.Value.Date,
+            CreateDate = DateTimeOffset.Now.Date
         };
         try
         {

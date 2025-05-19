@@ -5,7 +5,7 @@ namespace EventLogsManage.Domain.Entities;
 
 public class EventLogEntity : BaseEntity
 {
-    public long EventLogId { get; set; }
+    public Guid EventLogId { get; set; }
     public required string Description { get; set; }
     public EventType EventType { get; set; }
     public DateTimeOffset EventDate { get; set; }

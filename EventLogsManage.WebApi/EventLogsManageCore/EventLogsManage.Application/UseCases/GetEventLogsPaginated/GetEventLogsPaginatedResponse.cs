@@ -3,7 +3,4 @@ using EventLogsManage.Domain.Base;
 
 namespace EventLogsManage.Application.UseCases.GetEventLogsPaginated;
 
-public class GetEventLogsPaginatedResponse
-{
-    public ResponseWithPagination<IEnumerable<GetEventLogsPaginatedDTO>>? GetSubscriptionsPaginated { get; set; }
-}
+public class GetEventLogsPaginatedResponse: ResponseWithPagination<IEnumerable<GetEventLogsPaginatedDTO>>;

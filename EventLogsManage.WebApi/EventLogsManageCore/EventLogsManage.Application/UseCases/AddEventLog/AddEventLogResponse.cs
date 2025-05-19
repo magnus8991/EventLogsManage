@@ -2,5 +2,5 @@
 
 public record AddEventLogResponse
 {
-    public long EventoLogId { get; set; }
+    public Guid EventoLogId { get; set; }
 }

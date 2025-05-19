@@ -24,16 +24,13 @@ public class GetEventLogsPaginatedQuery(IEventLogRepository eventLogRepository) 
             CodeId = (int)HttpStatusCode.OK,
             Data = new()
             {
-                GetSubscriptionsPaginated = new()
+                Pagination = new()
                 {
-                    Pagination = new()
-                    {
-                        PageNumber = request.Page,
-                        PageSize = request.PageSize,
-                        TotalElements = totalRecords
-                    },
-                    Data = MapResponse(eventLogs!)
-                }
+                    PageNumber = request.Page,
+                    PageSize = request.PageSize,
+                    TotalElements = totalRecords
+                },
+                Records = MapResponse(eventLogs!)
             }
         };
     }
